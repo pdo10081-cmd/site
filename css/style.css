@@ -57,7 +57,7 @@ a:hover {
 
 .hero {
    height: 60vh; /* 60% висоти екрану */
-   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('path-to-image.jpg');
+   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/toms-stals-YYaG0XJwHn8-unsplash.jpg');
    background-size: cover;
    background-position: center;
    display: flex;
