@@ -43,20 +43,20 @@ a:hover {
    color: white;
    border-radius: 8px;
    font-weight: 600;
-   text-transform: uppercase; /* Текст великими літерами */
-   letter-spacing: 1px;       /* Розрідження літер */
+   text-transform: uppercase; 
+   letter-spacing: 1px;      
    transition: all 0.3s ease;
-   box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); /* Ніжна синя тінь */
+   box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
  }
 
 .btn:hover {
    background-color: var(--primary-hover);
-   transform: translateY(-2px); /* Кнопка ніби піднімається */
+   transform: translateY(-2px); 
    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
 }
 
 .hero {
-   height: 60vh; /* 60% висоти екрану */
+   height: 60vh; 
    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/toms-stals-YYaG0XJwHn8-unsplash.jpg');
    background-size: cover;
    background-position: center;
@@ -67,6 +67,7 @@ a:hover {
    text-align: center;
    color: white;
 }
+
 
 .hero h1 {
    font-size: 3rem;
