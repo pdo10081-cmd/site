@@ -28,39 +28,62 @@
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h2>
-                Новинки 2026 року вже в TechShop!
-            </h2>
-            <a href="#" class="btn">переглянути всі Товари </a>
-        </section>
+    <section class="hero">
+        <h2>Новинки 2026 року вже в TechShop!</h2>
+        <a href="#" class="btn">переглянути всі Товари</a>
+    </section>
 
-        <section class="products">
+    <main class="page-layout">
+
+        <aside class="sidebar">
+            <h3>Фільтри</h3>
+
+            <div class="filter-group">
+                <h4>Категорії</h4>
+                <ul>
+                    <li><label><input type="checkbox" /> Ноутбуки</label></li>
+                    <li><label><input type="checkbox" /> Смартфони</label></li>
+                    <li><label><input type="checkbox" /> Навушники</label></li>
+                    <li><label><input type="checkbox" /> Побутова техніка</label></li>
+                    <li><label><input type="checkbox" /> Геймпади</label></li>
+                </ul>
+            </div>
+
+            <div class="filter-group">
+                <h4>Ціна</h4>
+                <ul>
+                    <li><label><input type="checkbox" /> До 500 грн</label></li>
+                    <li><label><input type="checkbox" /> 500 – 2 000 грн</label></li>
+                    <li><label><input type="checkbox" /> 2 000 – 10 000 грн</label></li>
+                    <li><label><input type="checkbox" /> Понад 10 000 грн</label></li>
+                </ul>
+            </div>
+        </aside>
+
+        <section class="products-content">
             <h2>Популярні товари</h2>
 
-            <div class="products-grid"> 
+            <div class="products-grid">
                 <article class="product-card">
                     <img src="https://via.placeholder.com/150" alt="Чайник Bosch MyMoment TWK1M12" class="product-img">
                     <h3 class="product-title">Чайник Bosch MyMoment TWK1M121</h3>
-                    <p class="product-desc">Чайник потужністю 2400 Вт та об’ємом 1,7 л. Потрійна функція безпеки:автоматичне відключення,захист від перегріву тавключення без води,відключення при знятті з бази. </p>
+                    <p class="product-desc">Чайник потужністю 2400 Вт та об'ємом 1,7 л. Потрійна функція безпеки: автоматичне відключення, захист від перегріву та включення без води, відключення при знятті з бази.</p>
                     <span class="product-price">1 299 грн</span>
                     <button class="btn-buy">Купити</button>
                 </article>
-                
+
                 <article class="product-card">
                     <img src="https://via.placeholder.com/150" alt="Навушники Panasonic RP-HJE125E-K" class="product-img">
                     <h3 class="product-title">Навушники Panasonic RP-HJE125E-K</h3>
-                    <p class="product-desc">Модель навушників-вкладок Panasonic RP-HJE125E-K виготовлена в ергономічному дизайні Ergofit, що надає комфорт під час прослуховування.Динаміки OctaRib відповідають за якісне звучання.     </p>
+                    <p class="product-desc">Модель навушників-вкладок Panasonic RP-HJE125E-K виготовлена в ергономічному дизайні Ergofit, що надає комфорт під час прослуховування. Динаміки OctaRib відповідають за якісне звучання.</p>
                     <span class="product-price">279 грн</span>
                     <button class="btn-buy">Купити</button>
                 </article>
 
-             
                 <article class="product-card">
                     <img src="https://via.placeholder.com/150" alt="Ноутбук Acer Aspire Lite AL15-72P-551J" class="product-img">
                     <h3 class="product-title">Ноутбук Acer Aspire Lite AL15-72P-551J</h3>
-                    <p class="product-desc">Ефективно справляйтеся з будь-якими завданнями завдяки швидкодіючому процесору та великому обсягу пам’яті, що гарантує надійну роботу ноутбука Aspire Lite.    </p>
+                    <p class="product-desc">Ефективно справляйтеся з будь-якими завданнями завдяки швидкодіючому процесору та великому обсягу пам'яті, що гарантує надійну роботу ноутбука Aspire Lite.</p>
                     <span class="product-price">25 999 грн</span>
                     <button class="btn-buy">Купити</button>
                 </article>
@@ -68,24 +91,26 @@
                 <article class="product-card">
                     <img src="https://via.placeholder.com/150" alt="Геймпад RZTK GamePad BT5.0 Yellow" class="product-img">
                     <h3 class="product-title">Геймпад RZTK GamePad BT5.0 Yellow</h3>
-                    <p class="product-desc">Це сучасний та інноваційний контролер,який дозволяє підняти ігровий досвід на абсолютно новий рівень.    </p>
+                    <p class="product-desc">Це сучасний та інноваційний контролер, який дозволяє підняти ігровий досвід на абсолютно новий рівень.</p>
                     <span class="product-price">1 049 грн</span>
                     <button class="btn-buy">Купити</button>
                 </article>
             </div>
         </section>
+
     </main>
-    <footer> 
+
+    <footer>
         <div>
             <p>Контактна інформація: info@techshop.ua</p>
-            <p> &copy; 2025 TechShop </p> 
-        </div>  
+            <p>&copy; 2025 TechShop</p>
+        </div>
 
         <div>
             <ul>
                 <li><a href="#">TikTok</a></li>
-                <li><a href="#">Facebook</a> </li>
-                <li><a href="#">Instagram</a> </li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
             </ul>
         </div>
     </footer>
