@@ -90,6 +90,17 @@ a:hover {
    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
 }
 
+.btn-cart {
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+
 .hero {
    height: 60vh; 
    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/toms-stals-YYaG0XJwHn8-unsplash.jpg');
@@ -136,13 +147,33 @@ a:hover {
   margin-bottom: 10px;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block; 
+  }
+
+  .main-nav ul {
+    display: none; /* Ховаємо горизонтальне меню. У JS семестрі ми навчимось відкривати його по кліку */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
   .page-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Всі блоки в один стовпець */
+    padding: 1rem; /* Відступи на телефоні мають бути менші */
   }
 
   .header {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
   }
 }
@@ -150,4 +181,24 @@ a:hover {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-dark);
+}
+
+.social-links svg {
+    fill: var(--primary-color);
+}
+
+.social-links a:hover svg {
+    fill: var(--primary-hover);
 }
