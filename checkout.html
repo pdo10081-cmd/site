@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop - Магазин гаджетів</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="logo">TechShop</h1>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="#">Головна</a></li>
+                <li><a href="#">Товари</a></li>
+                <li><a href="#">Про нас</a></li>
+                <li><a href="#">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-actions">
+            <button class="btn btn-cart">Кошик (0)</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Новинки 2026 року вже в TechShop!</h2>
+        <a href="#" class="btn">переглянути всі Товари</a>
+    </section>
+
+    <main class="checkout-layout">
+        <h2>Оформлення замовлення</h2>
+
+        <form action="#" method="POST" class="checkout-form">
+            <fieldset>
+
+                <legend>1. Особисті дані</legend>
+
+                <div class="form-group">
+                    <label for="fullName">ПІБ:</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Іванов Іван Іванович" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <!-- Валідація на 10-12 цифр + код країни -->
+                    <input type="tel" id="phone" name="phone" pattern="[\+]\d{2}\d{10}" placeholder="+380991234567"
+                        required title="Формат: +380XXXXXXXXX" />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Спосіб доставки</legend>
+                <div class="form-radio">
+                    <input type="radio" id="deliveryNova" name="delivery" value="nova_poshta" checked />
+                    <label for="deliveryNova">Нова Пошта</label>
+                </div>
+                <div class="form-radio">
+                    <input type="radio" id="deliveryCourier" name="delivery" value="courier" />
+                    <label for="deliveryCourier">Кур'єр за адресою</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Місто:</label>
+                    <select id="city" name="city">
+                        <option value="kyiv">Київ</option>
+                        <option value="lviv">Львів</option>
+                        <option value="odesa">Одеса</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Коментар та згода</legend>
+
+                <div class="form-group">
+                    <label for="comment">Коментар до замовлення:</label>
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        placeholder="Додаткові побажання до замовлення..."
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <div class="form-checkbox">
+                    <input
+                        type="checkbox"
+                        id="agree"
+                        name="agree"
+                        required
+                    />
+                    <label for="agree">Я погоджуюсь з правилами магазину</label>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary">
+                Підтвердити замовлення
+            </button>
+
+        </form>
+
+
+            
+
+        </form>
+
+
+
+
+
+
+
+    </main>
+    <footer class="footer">
+        <div class="footer-info">
+            <p>Контактна інформація: info@techshop.ua</p>
+            <p> &copy; 2025 TechShop </p>
+        </div>
+
+        <div class="footer-social">
+            <ul>
+                <li><a href="#">TikTok</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
