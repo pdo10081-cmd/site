@@ -50,6 +50,55 @@ const products = [
     }
 ];
 
+let cart = [];
+
+document.querySelector(".products-grid").addEventListener("click", (event) => {
+  const button = event.target.closest(".btn-buy");
+  if (!button) return;
+
+  const productId = Number(button.dataset.id);
+  const selectedProduct = products.find((p) => p.id === productId);
+
+  if (selectedProduct) {
+    addToCart(selectedProduct);
+  }
+});
+
+function calculateTotal() {
+  return cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+}
+
+function updateUI() {
+  const cartCounter = document.querySelector(".cart-counter");
+  // Практично так samo метод reduce для рахунку загальної кількості товарів (включаючи > 1 одного типу)
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  if (cartCounter) {
+    cartCounter.textContent = totalItems;
+  }
+
+  console.log("Поточний кошик:", cart);
+  console.log("Загальна сума:", calculateTotal(), "грн");
+}
+
+function addToCart(product) {
+  // Перевіряємо (через метод find) чи існує вже такий товар
+  const existingItem = cart.find((item) => item.id === product.id);
+
+  if (existingItem) {
+    // Якщо товар вже в кошику, просто збільшуємо кількість у властивості `quantity`
+    existingItem.quantity += 1;
+  } else {
+    // Інакше додаємо новий об'єкт у масив, встановлюючи початкову кількість = 1 (Spread оператор)
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  updateUI(); // Викликаємо оновлення екрану
+}
+
 const container = document.querySelector(".products-grid");
 
 // Використовуємо .map() щоб перетворити масив об'єктів на масив HTML-рядків
@@ -65,6 +114,7 @@ const htmlString = products
     `;
     })
     .join(""); 
+
 
 // Вставляємо згенерований текст на сторінку
 container.innerHTML = htmlString;
