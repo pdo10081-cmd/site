@@ -54,6 +54,9 @@ let cart = [];
 
 const loader = document.getElementById("loader");
 const container = document.querySelector(".products-grid");
+const cartButton = document.querySelector(".btn-cart");
+const cartOverlay = document.getElementById("cartOverlay");
+const closeBtn = document.getElementById("closeCartBtn");
 
 function fetchProducts() {
   return new Promise((resolve, reject) => {
@@ -125,6 +128,25 @@ function addToCart(product) {
   updateUI();
 }
 
+function openCartModal() {
+  cartOverlay.classList.remove("hidden");
+  renderCartItems();
+}
+
+function closeCartModal() {
+  cartOverlay.classList.add("hidden");
+}
+
+cartButton.addEventListener("click", openCartModal);
+closeBtn.addEventListener("click", closeCartModal);
+
+// Закриття кліком по темному фону поза вікном
+cartOverlay.addEventListener("click", (event) => {
+  if (event.target === cartOverlay) {
+    closeCartModal();
+  }
+});
+
 function calculateTotal() {
   return cart.reduce((total, item) => total + item.price * item.quantity, 0);
 }
@@ -139,6 +161,57 @@ function updateUI() {
 
   console.log("Поточний кошик:", cart);
   console.log("Загальна сума:", calculateTotal(), "грн");
+}
+
+document.getElementById("cartItemsContainer").addEventListener("click", (event) => {
+  const id = Number(event.target.dataset.id);
+  const item = cart.find((p) => p.id === id);
+
+  if (!item) return;
+
+  if (event.target.classList.contains("btn-plus")) {
+    item.quantity += 1;
+  }
+
+  if (event.target.classList.contains("btn-minus")) {
+    item.quantity -= 1;
+    if (item.quantity === 0) {
+      cart = cart.filter((p) => p.id !== id);
+    }
+  }
+
+  renderCartItems();
+  updateUI();
+});
+
+function renderCartItems() {
+  const itemsContainer = document.getElementById("cartItemsContainer");
+  const totalSumEl = document.getElementById("cartTotalSum");
+
+  if (cart.length === 0) {
+    itemsContainer.innerHTML = "<p>Кошик порожній.</p>";
+  } else {
+    itemsContainer.innerHTML = cart
+      .map(
+        (item) => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div>
+              <h4>${item.name}</h4>
+              <p>${item.price} грн</p>
+            </div>
+            <div class="quantity-controls">
+              <button class="btn-minus" data-id="${item.id}">−</button>
+              <span>${item.quantity}</span>
+              <button class="btn-plus" data-id="${item.id}">+</button>
+            </div>
+          </div>
+        `,
+      )
+      .join("");
+  }
+
+  totalSumEl.textContent = calculateTotal();
 }
 
 initShop();

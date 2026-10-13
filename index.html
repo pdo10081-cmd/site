@@ -133,6 +133,27 @@
         </div>
     </footer>
     <script src="./assets/js/main.js" type="module"></script>
+
+    <div class="modal-overlay hidden" id="cartOverlay">
+        <!-- Саме біле вікно кошика по центру -->
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2>Ваш Кошик</h2>
+                <button class="close-btn" id="closeCartBtn">&times;</button>
+            </div>
+
+            <!-- Тут JS малюватиме додані товари -->
+            <div class="cart-items" id="cartItemsContainer">
+                <p>Кошик порожній.</p>
+            </div>
+
+            <div class="modal-footer">
+                <h3>Разом: <span id="cartTotalSum">0</span> грн</h3>
+                <!-- Посилання на нашу форму оформлення з ПР №6 -->
+                <a href="checkout.html" class="btn btn-primary" id="checkoutBtn">Оформити замовлення</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
