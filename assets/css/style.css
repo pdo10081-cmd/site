@@ -287,3 +287,32 @@ a:hover {
   display: none !important;
   opacity: 0;
 }
+
+.product-card {
+  cursor: grab;
+}
+
+.product-card.dragging {
+  opacity: 0.5;
+}
+
+.favorites-zone {
+  margin-top: 2rem;
+  padding: 2rem;
+  border: 2px dashed var(--primary-color);
+  border-radius: 8px;
+  background: white;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.favorites-zone.drag-over {
+  background-color: #dbeafe;
+}
+
+.fav-item {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: var(--bg-color);
+  border-radius: 4px;
+}

@@ -97,8 +97,8 @@ async function initShop() {
     container.innerHTML = data
       .map(
         (product) => `
-          <article class="product-card">
-            <img src="${product.image}" alt="${product.title}">
+          <article class="product-card" draggable="true" data-id="${product.id}">
+            <img src="${product.image}" alt="${product.title}" draggable="false">
             <h3>${product.title}</h3>
             <p class="price">$${product.price}</p>
             <button class="btn btn-buy" data-id="${product.id}">Купити</button>
@@ -224,5 +224,65 @@ cartOverlay.addEventListener("click", (event) => {
     closeCartModal();
   }
 });
+
+
+
+// ---------- Улюблене (Drag-and-Drop) ----------
+
+const productsContainer = container;
+let favorites = [];
+const favoritesZone = document.getElementById("favoritesZone");
+
+productsContainer.addEventListener("dragstart", (event) => {
+  if (event.target.classList.contains("product-card")) {
+    // Зберігаємо ID товару, який ми почали тягнути в спеціальний "буфер обміну" Drag-and-Drop
+    event.dataTransfer.setData("text/plain", event.target.dataset.id);
+    event.target.classList.add("dragging"); // Додаємо CSS-клас для напівпрозорості
+  }
+});
+
+productsContainer.addEventListener("dragend", (event) => {
+  if (event.target.classList.contains("product-card")) {
+    event.target.classList.remove("dragging"); // Повертаємо нормальний вигляд
+  }
+});
+
+favoritesZone.addEventListener("dragover", (event) => {
+  event.preventDefault();
+  favoritesZone.classList.add("drag-over");
+});
+
+favoritesZone.addEventListener("dragleave", () => {
+  favoritesZone.classList.remove("drag-over");
+});
+
+favoritesZone.addEventListener("drop", (event) => {
+  event.preventDefault();
+  favoritesZone.classList.remove("drag-over");
+
+  const productId = Number(event.dataTransfer.getData("text/plain"));
+  const product = globalStoreProducts.find((p) => p.id === productId);
+
+  if (!product) return;
+  if (favorites.some((p) => p.id === productId)) return;
+
+  favorites.push(product);
+  renderFavorites();
+});
+
+function renderFavorites() {
+  favoritesZone.replaceChildren();
+
+  const hint = document.createElement("p");
+  hint.textContent = "Перетягніть сюди товари в Улюблене";
+  favoritesZone.append(hint);
+
+  favorites.forEach((product) => {
+    const item = document.createElement("div");
+    item.className = "fav-item";
+    item.textContent = product.title;
+    favoritesZone.append(item);
+  });
+}
 
 initShop();
